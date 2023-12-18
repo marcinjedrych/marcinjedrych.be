@@ -27,8 +27,8 @@ section {
 }
 
 #profile-pic {
-  height: 100px;
-  width: 30px;
+  height: 80px;
+  width: 50px;
   border-radius: 80%; /* Creates a perfect circle */
   margin-bottom: 20px;
 }
