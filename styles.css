@@ -27,9 +27,10 @@ section {
 }
 
 #profile-pic {
-  max-width: 100%;
+  max-width: 150px; /* Adjust the size as needed */
+  width: 100%;
   height: auto;
-  border-radius: 50%;
+  border-radius: 50%; /* Creates a perfect circle */
   margin-bottom: 20px;
 }
 
