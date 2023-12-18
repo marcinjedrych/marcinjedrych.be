@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
@@ -12,18 +12,25 @@ header {
   padding: 20px;
 }
 
+header p {
+  font-style: italic;
+  margin-top: 10px;
+}
+
 section {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-img {
+#profile-pic {
   max-width: 100%;
   height: auto;
   border-radius: 50%;
+  margin-bottom: 20px;
 }
 
 h1, h2 {
@@ -35,11 +42,24 @@ a {
   text-decoration: none;
 }
 
-ul {
+.social-links {
   list-style: none;
   padding: 0;
 }
 
-li {
+.social-links li {
   margin-bottom: 10px;
 }
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.social-links i {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
