@@ -28,10 +28,10 @@ section {
 
 #profile-pic {
   height: 180px;
-  width: 315px;
+  width: 190px;
   border-radius: 100%; /* Creates a perfect circle */
   margin-bottom: 20px;
-}
+} 
 
 h1, h2 {
   color: #333;
