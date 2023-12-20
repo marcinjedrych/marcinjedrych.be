@@ -6,7 +6,8 @@
   <title>Marcin Jedrych - Personal Website</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-GLhlTQ8iK9tVzajr7ctF8RHzPcQGGKfH/KD5D5F5sibxW+q2BRR5y5CZbL6T/k2N" crossorigin="anonymous">
-  
+
+  <!--
   <script>
     function checkPassword() {
       var password = prompt("Enter the password to access Tassen:");
@@ -17,6 +18,7 @@
       }
     }
   </script>
+-->
   
 </head>
 <body>
@@ -33,34 +35,33 @@
 
     <h1>Welcome to my personal website!<h1>
 
-      <!--
-    <script>
-      function checkPassword() {
-        var password = prompt("Enter the password to access Tassen:");
-        // Send the password to the server for verification
-        fetch('verify-password.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ password: password }),
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            // Redirect to Tassen if the password is correct
-            window.location.href = "//tassn.netlify.app";
-          } else {
-            alert("Incorrect password. Please try again.");
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert("An error occurred. Please try again.");
-        });
-      }
-    </script>
-      -->
+<script>
+  function checkPassword() {
+    var password = prompt("Enter the password to access Tassen:");
+
+    // Send the password to the serverless function for verification
+    fetch('/.netlify/functions/verify-password', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ password: password }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          // Redirect to Tassen if the password is correct
+          window.location.href = "//tassn.netlify.app";
+        } else {
+          alert("Incorrect password. Please try again.");
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert("An error occurred. Please try again.");
+      });
+  }
+</script>
 
     <!---
     <h2>About Me</h2>
