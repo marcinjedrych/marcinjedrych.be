@@ -6,13 +6,12 @@
   <title>Marcin Jedrych - Personal Website</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-GLhlTQ8iK9tVzajr7ctF8RHzPcQGGKfH/KD5D5F5sibxW+q2BRR5y5CZbL6T/k2N" crossorigin="anonymous">
-  <style>
-    /* Add some padding to the body to account for fixed sidebar */
+<style>
+    /* PC Styles */
     body {
-      padding-left: 250px;
+      padding-left: 250px; /* Space for sidebar */
     }
 
-    /* Sidebar styling */
     .sidebar {
       position: fixed;
       margin-top: 0;
@@ -24,7 +23,6 @@
       overflow-y: auto;
     }
 
-    /* Sidebar links */
     .sidebar a {
       display: block;
       padding: 10px;
@@ -32,18 +30,32 @@
       color: #333;
     }
 
-    /* Active/current link */
     .sidebar a.active {
       background-color: #2382c2e7;
       color: white;
     }
 
-    /* Hover effect on links */
     .sidebar a:hover {
       background-color: #252626;
       color: white;
     }
 
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      body {
+        padding-left: 0; /* No sidebar padding on mobile */
+      }
+
+      .sidebar {
+        width: 100%; /* Full width */
+        position: static; /* Not fixed to the side */
+        height: auto; /* Adjust height */
+      }
+
+      .sidebar a, .sidebar a.active, .sidebar a:hover {
+        font-size: smaller; /* Smaller text */
+      }
+    }
   </style>
   <script>
     function checkPassword() {
