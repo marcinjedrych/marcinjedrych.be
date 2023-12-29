@@ -4,12 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marcin Jedrych - Personal Website</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-GLhlTQ8iK9tVzajr7ctF8RHzPcQGGKfH/KD5D5F5sibxW+q2BRR5y5CZbL6T/k2N" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
   <style>
-    /* Add some padding to the body to account for fixed sidebar */
+    /* Basic Reset */
+    body, h1, h2, p, ul, li, a {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Body and Layout */
     body {
       padding-left: 250px;
+      background-color: #f4f4f4;
+      margin-top: 20px; /* Add space at the top */
     }
 
     /* Sidebar styling */
@@ -19,100 +27,8 @@
       left: 0;
       width: 250px;
       height: 100%;
-      background-color: #f5f5f5;
+      background-color: #34495e;
+      color: white;
       padding: 20px;
       overflow-y: auto;
-    }
-
-    /* Sidebar links */
-    .sidebar a {
-      display: block;
-      padding: 10px;
-      text-decoration: none;
-      color: #333;
-    }
-
-    /* Active/current link */
-    .sidebar a.active {
-      background-color: #4CAF50;
-      color: white;
-    }
-
-    /* Hover effect on links */
-    .sidebar a:hover {
-      background-color: #555;
-      color: white;
-    }
-
-    /* Style for the "Back to home" button */
-    .back-btn {
-      display: inline-block;
-      padding: 10px;
-      background-color: #f44336;
-      color: white;
-      text-decoration: none;
-      margin-top: 10px;
-    }
-  </style>
-  <script>
-    function checkPassword() {
-      var password = prompt("Enter the password to access Tassen:");
-      if (password === "pils2000") {
-        window.location.href = "//tassn.netlify.app";
-      } else {
-        alert("Incorrect password. Please try again.");
-      }
-    }
-    
-    function goBack() {
-      window.history.back();
-    }
-  </script>
-</head>
-<body>
-
-  <!-- Sidebar content -->
-  <div class="sidebar">
-    <a class="active" href="#home">Home</a>
-    <a href="#about">About Me</a>
-    <a href="#cv">My CV</a>
-    <a href="#pictures">Pictures</a>
-    <a href="#otherstuff">Other Stuff</a>
-    <a href="javascript:goBack()">Back to Previous</a>
-  </div>
-
-  <header>
-    <h1>Marcin Jedrych</h1>
-    <p>Statistical data-analysis - Computational statistics | Experimental Psychology - Neuroscience</p>
-    <!-- Back to home button -->
-    <a href="#home" class="back-btn">Back to Home</a>
-  </header>
-
-  <section id="home">
-    <img id="profile-pic" src="PP.jpg" alt="Profile Picture">
-
-    <p>Marcin Jedrych</p> <!-- Add this line -->
-
-    <h1>Welcome to my personal website!<h1>
-      
-    <!-- ... other existing sections ... -->
-      
-    <h2>Connect with Me</h2>
-    <!-- ... -->
-  </section>
-
-  <!-- Additional sections can be added here -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>...</p>
-  </section>
-
-  <section id="cv">
-    <h2>My CV</h2>
-    <p>Download my CV: <a href="path/to/your/cv.pdf" target="_blank">CV.pdf</a></p>
-  </section>
-
-  <!-- ... other sections for pictures, other stuff, etc. ... -->
-
-</body>
-</html>
+   
