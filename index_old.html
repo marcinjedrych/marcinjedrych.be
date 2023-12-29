@@ -36,33 +36,7 @@
     <h1>Welcome to my personal website!<h1>
 
 <!--
-<script>
-  function checkPassword() {
-    var password = prompt("Enter the password to access Tassen:");
 
-    // Send the password to the serverless function for verification
-    fetch('/.netlify/functions/verify-password', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ password: password }),
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          // Redirect to Tassen if the password is correct
-          window.location.href = "//tassn.netlify.app";
-        } else {
-          alert("Incorrect password. Please try again.");
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert("An error occurred. Please try again.");
-      });
-  }
-</script>
 -->
     <!---
     <h2>About Me</h2>
