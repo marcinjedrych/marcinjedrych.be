@@ -44,20 +44,22 @@
     /* Mobile Styles */
     @media (max-width: 768px) {
       body {
-        padding-left: 0; /* No sidebar padding on mobile */
+        padding-left: 55px; /* No sidebar padding on mobile */
+        padding-right: 20px;
       }
 
       .sidebar {
-        width: 80%; /* Adjusted width */
+        margin-top: 60px;
+        width: 90%; /* Adjusted width */
         transform: translateX(-100%); /* Start off-screen */
       }
 
       .menu-toggle {
         display: none; /* Hidden by default */
         position: fixed;
-        top: 10px;
+        top: 15px;
         left: 10px;
-        font-size: 30px;
+        font-size: 40px;
         cursor: pointer;
         z-index: 1000;
       }
