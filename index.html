@@ -72,6 +72,11 @@
 </head>
 <body>
 
+  <header>
+    <h1>Marcin Jedrych</h1>
+    <p>Statistical data-analysis - Computational statistics | Experimental Psychology - Neuroscience</p>
+  </header>
+
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
   <div class="sidebar">
     <a class="active" href="#home">Home</a>
@@ -103,6 +108,15 @@
         document.querySelector('.menu-toggle').classList.remove('active');
       }
     };
+
+    function checkPassword() {
+      var password = prompt("Enter the password to access Tassen:");
+      if (password === "pils2000") {
+        window.location.href = "//tassn.netlify.app";
+      } else {
+        alert("Incorrect password. Please try again.");
+      }
+    }
   </script>
 
   <section id="home">
@@ -116,6 +130,7 @@
   </section>
 
   <!-- Additional sections can be added here -->
+  <!--
   <section id="about">
     <h2>About Me</h2>
     <p>...</p>
@@ -125,6 +140,7 @@
     <h2>My CV</h2>
     <p>Download my CV: <a href="path/to/your/cv.pdf" target="_blank">CV.pdf</a></p>
   </section>
+  -->
 
   <section id="connect">
     <h2>Connect with Me</h2>
