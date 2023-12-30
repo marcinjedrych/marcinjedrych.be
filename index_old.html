@@ -5,10 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marcin Jedrych - Personal Website</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-GLhlTQ8iK9tVzajr7ctF8RHzPcQGGKfH/KD5D5F5sibxW+q2BRR5y5CZbL6T/k2N" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Base Styles */
+    body {
+      padding-left: 250px; /* Space for sidebar */
+    }
 
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 100%;
+      background-color: #f5f5f5;
+      padding: 20px;
+      overflow-y: auto;
+      transition: transform 0.3s;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .sidebar a.active {
+      background-color: #2382c2e7;
+      color: white;
+    }
+
+    .sidebar a:hover {
+      background-color: #252626;
+      color: white;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      body {
+        padding-left: 55px; /* No sidebar padding on mobile */
+        padding-right: 20px;
+      }
+
+      .sidebar {
+        margin-top: 60px;
+        width: 90%; /* Adjusted width */
+        transform: translateX(-100%); /* Start off-screen */
+      }
+
+      .menu-toggle {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 15px;
+        left: 10px;
+        font-size: 40px;
+        cursor: pointer;
+        z-index: 1000;
+      }
+
+      .menu-toggle.active + .sidebar {
+        transform: translateX(0%); /* Bring sidebar on-screen when active */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Marcin Jedrych</h1>
+    <p>Statistical data-analysis - Computational statistics | Experimental Psychology - Neuroscience</p>
+  </header>
+
+  <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+  <div class="sidebar">
+    <a class="active" href="#home">Home</a>
+    <a href="#pictures">Pictures</a>
+    <a href="#R">Code</a>
+    <a href="#Private">Private</a>
+  </div>
 
   <script>
+    function toggleMenu() {
+      var menuToggle = document.querySelector('.menu-toggle');
+      var sidebar = document.querySelector('.sidebar');
+      menuToggle.classList.toggle('active');
+      sidebar.classList.toggle('active');
+    }
+
+    // Ensure menu toggle is shown on mobile
+    if(window.innerWidth < 768) {
+      document.querySelector('.menu-toggle').style.display = 'block';
+    }
+
+    // Adjust visibility on screen resize
+    window.onresize = function() {
+      if(window.innerWidth < 768) {
+        document.querySelector('.menu-toggle').style.display = 'block';
+      } else {
+        document.querySelector('.menu-toggle').style.display = 'none';
+        document.querySelector('.sidebar').classList.remove('active');
+        document.querySelector('.menu-toggle').classList.remove('active');
+      }
+    };
+
     function checkPassword() {
       var password = prompt("Enter the password to access Tassen:");
       if (password === "pils2000") {
@@ -19,46 +119,45 @@
     }
   </script>
 
-  
-</head>
-<body>
-
-  <header>
-    <h1>Marcin Jedrych</h1>
-    <p>Statistical data-analysis - Computational statistics | Experimental Psychology - Neuroscience</p>
-  </header>
-
-  <section>
+  <section id="home">
     <img id="profile-pic" src="PP.jpg" alt="Profile Picture">
 
     <p>Marcin Jedrych</p> <!-- Add this line -->
 
     <h1>Welcome to my personal website!<h1>
+      
+    <!-- ... -->
+  </section>
 
-<!--
-
--->
-    <!---
+  <!-- Additional sections can be added here -->
+  <!--
+  <section id="about">
     <h2>About Me</h2>
     <p>...</p>
+  </section>
 
+  <section id="cv">
     <h2>My CV</h2>
     <p>Download my CV: <a href="path/to/your/cv.pdf" target="_blank">CV.pdf</a></p>
-    -->
-      
+  </section>
+  -->
+
+  <section id="connect">
     <h2>Connect with Me</h2>
     <ul class="social-links">
       <li><a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165" ><i class="fab fa-linkedin"></i> LinkedIn</a></li>
       <li><a href="https://github.com/marcinjedrych" ><i class="fab fa-github"></i> GitHub</a></li>
     </ul>
+  </section>
 
+  <section id="Games">
     <h2>Games</h2>
     <ul class="social-links">
       <li><a href="javascript:void(0);" onclick="checkPassword()"><i class="fab fa-tassn"></i> Tassen</a></li>
     </ul>
   </section>
 
+  <!-- ... other sections for pictures, other stuff, etc. ... -->
+
 </body>
 </html>
-
-
