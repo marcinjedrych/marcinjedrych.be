@@ -41,6 +41,15 @@
       color: white;
     }
 
+    /* Sections hidden by default except home */
+    section {
+      display: none;
+    }
+
+    section#home {
+      display: block;
+    }
+
     /* Mobile Styles */
     @media (max-width: 768px) {
       body {
@@ -79,11 +88,33 @@
 
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
   <div class="sidebar">
-    <a class="active" href="#home">Home</a>
-    <a href="#pictures">Pictures</a>
-    <a href="#R">Code</a>
-    <a href="#Private">Private</a>
+    <a href="javascript:void(0);" onclick="loadContent('home')">Home</a>
+    <a href="javascript:void(0);" onclick="loadContent('pictures')">Pictures</a>
+    <a href="javascript:void(0);" onclick="loadContent('code')">Code</a>
+    <a href="javascript:void(0);" onclick="loadContent('private')">Private</a>
   </div>
+
+  <section id="home">
+    <img id="profile-pic" src="PP.jpg" alt="Profile Picture">
+    <h1>Welcome to my personal website!<h1>
+  </section>
+
+  <section id="pictures">
+    <h2>Pictures</h2>
+    <p>There will come pictures here soon.</p>
+  </section>
+
+  <section id="code">
+    <h2>Code</h2>
+    <p>Code related content will be displayed here.</p>
+  </section>
+
+  <section id="private">
+    <h2>Private</h2>
+    <p>Private content will be displayed here.</p>
+  </section>
+
+  <!-- Add additional sections as needed -->
 
   <script>
     function toggleMenu() {
@@ -93,9 +124,25 @@
       sidebar.classList.toggle('active');
     }
 
-    // Ensure menu toggle is shown on mobile
-    if(window.innerWidth < 768) {
-      document.querySelector('.menu-toggle').style.display = 'block';
+    // Load Content Function
+    function loadContent(pageId) {
+      // Hide all sections
+      document.querySelectorAll('section').forEach(function(section) {
+        section.style.display = 'none';
+      });
+
+      // Show the requested section
+      var sectionToShow = document.getElementById(pageId);
+      if (sectionToShow) {
+        sectionToShow.style.display = 'block';
+      } else {
+        console.error('Section not found:', pageId);
+      }
+
+      // Close the sidebar on mobile after selection
+      if(window.innerWidth < 768) {
+        toggleMenu();
+      }
     }
 
     // Adjust visibility on screen resize
@@ -108,56 +155,7 @@
         document.querySelector('.menu-toggle').classList.remove('active');
       }
     };
-
-    function checkPassword() {
-      var password = prompt("Enter the password to access Tassen:");
-      if (password === "pils2000") {
-        window.location.href = "//tassn.netlify.app";
-      } else {
-        alert("Incorrect password. Please try again.");
-      }
-    }
   </script>
-
-  <section id="home">
-    <img id="profile-pic" src="PP.jpg" alt="Profile Picture">
-
-    <p>Marcin Jedrych</p> <!-- Add this line -->
-
-    <h1>Welcome to my personal website!<h1>
-      
-    <!-- ... -->
-  </section>
-
-  <!-- Additional sections can be added here -->
-  <!--
-  <section id="about">
-    <h2>About Me</h2>
-    <p>...</p>
-  </section>
-
-  <section id="cv">
-    <h2>My CV</h2>
-    <p>Download my CV: <a href="path/to/your/cv.pdf" target="_blank">CV.pdf</a></p>
-  </section>
-  -->
-
-  <section id="connect">
-    <h2>Connect with Me</h2>
-    <ul class="social-links">
-      <li><a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165" ><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-      <li><a href="https://github.com/marcinjedrych" ><i class="fab fa-github"></i> GitHub</a></li>
-    </ul>
-  </section>
-
-  <section id="Games">
-    <h2>Games</h2>
-    <ul class="social-links">
-      <li><a href="javascript:void(0);" onclick="checkPassword()"><i class="fab fa-tassn"></i> Tassen</a></li>
-    </ul>
-  </section>
-
-  <!-- ... other sections for pictures, other stuff, etc. ... -->
 
 </body>
 </html>
