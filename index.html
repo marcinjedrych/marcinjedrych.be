@@ -16,7 +16,7 @@
       position: fixed;
       top: 0;
       padding-right: 250px;
-      margin-top: 195px;
+      margin-top: 175px;
       left: 0;
       width: 200px;
       height: 100%;
@@ -24,6 +24,7 @@
       padding: 20px;
       overflow-y: auto;
       transition: transform 0.3s;
+      border-radius: 10px;
     }
 
     .sidebar a {
@@ -50,7 +51,26 @@
 
     section#home {
       display: block;
+      background-color:rgb(28, 58, 88);
+      border-radius: 10px;
     }
+
+    .home-section {
+      background-color: #ffffff; /* Or any color you prefer */
+      padding: 20px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
+    }
+
+    .menu-toggle {
+        display: none; /* Hidden for pc */
+    }
+
+    .header{
+        border-radius: 0 0 20px 20px;
+        background-color: rgb(28, 58, 88);
+      }
 
     /* Mobile Styles */
     @media (max-width: 768px) {
@@ -67,7 +87,7 @@
       }
 
       .menu-toggle {
-        display: none; /* Hidden by default */
+        display: block; /* Hidden by default */
         position: fixed;
         top: 15px;
         left: 10px;
@@ -79,14 +99,19 @@
       .menu-toggle.active + .sidebar {
         transform: translateX(0%); /* Bring sidebar on-screen when active */
       }
-    }
+
+      #home::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
 
   </style>
 </head>
 <body>
 
   <header class ="header">
-    <h1>Marcin Jedrych</h1>
+    <h1 style="color: #ffffff" >Marcin Jedrych</h1>
     <p>Statistical data-analysis - Computational statistics | Experimental Psychology - Neuroscience</p>
   </header>
 
@@ -101,22 +126,27 @@
 
   <section id="home">
     
+    <div class="home-section" id="profile">
     <img id="profile-pic" src="PP.jpg" alt="Profile Picture">
     <h1>Welcome to my personal website!<h1>
+    </div>
 
+    <div class="home-section" id="connect">
     <h2>Connect with Me</h2>
     <ul class="social-links">
       <li><a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165" ><i class="fab fa-linkedin"></i> LinkedIn</a></li>
       <li><a href="https://github.com/marcinjedrych" ><i class="fab fa-github"></i> GitHub</a></li>
     </ul>
-      
+  </div>
+
+  <div class="home-section" id="games">
     <h2>Games</h2>
     <ul class="social-links">
       <li><a href="javascript:void(0);" onclick="checkPassword()"><i class="fab fa-tassn"></i> Tassen</a></li>
     </ul>
+  </div>
       
   </section>
-
 
 
   <section id="pictures">
