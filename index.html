@@ -12,6 +12,10 @@
       padding-left: 250px; /* Space for sidebar */
     }
 
+    .social-links .fa-github {
+      color: black;
+    }
+    
     .sidebar {
       position: fixed;
       top: 0;
@@ -69,6 +73,17 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
     }
+
+    #profile-pic {
+    margin-left: 24%;
+    margin-top: 2%;
+    margin-bottom: 0%;
+    width: 50%; /* Adjust the width as needed, can be less than 100% */
+    height: auto; /* This maintains the aspect ratio */
+    border-radius: 100%; /* If you want it to be a circle */
+    object-fit: cover; /* This ensures the image covers the area without stretching */
+    }
+
 
     .menu-toggle {
         display: none; /* Hidden for pc */
@@ -134,9 +149,18 @@
   <section id="home">
     
     <div class="home-section" id="profile">
-    <img id="profile-pic" src="ik.jpg" alt="Profile Picture">
-    <h1>Welcome to my personal website!<h1>
-    </div>
+  <img id="profile-pic" src="ik.jpg" alt="Profile Picture">
+  <h1>Welcome to my personal website!</h1>
+  <style>
+    @media only screen and (min-width: 801px) {
+      #profile h1 {
+        margin-left: 15%;
+      }
+    }
+  </style>
+</div>
+
+
 
     <div class="home-section" id="connect">
     <h2>Connect with Me</h2>
