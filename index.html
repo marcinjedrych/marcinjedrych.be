@@ -10,7 +10,7 @@
     /* Base Styles */
     body {
       padding-left: 250px; /* Space for sidebar */
-      background-color: #691b0f;
+      background-color:#b6cfe3;
     }
 
     .social-links .fa-github {
@@ -50,40 +50,33 @@
       color: rgb(255, 255, 255);
     }
 
-    /* Sections hidden by default except home */
+    /* All sections hidden by default */
     section {
-      display: none;
-    }
-
-    section#home {
-      display: block;
-      background-color:#691b0f;
-
+      display:none;
     }
 
     .home-section {
       background-color: #ffffff; /* Or any color you prefer */
-      padding: 5%;
-      padding-left: 3%;
       width: 100%;
-      margin-top: 3%;
-      margin-left: auto;
       border-color: #5f0303;
-      width: 100%;
+      width: 98%;
+      padding-left: 2%;
+      padding-bottom: 1%;
+      margin-top: 2%;
+      padding-top: 1%;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
     }
 
     #profile-pic {
-    margin-left: 24%;
-    margin-top: 2%;
-    margin-bottom: 0%;
-    width: 50%; /* Adjust the width as needed, can be less than 100% */
-    height: auto; /* This maintains the aspect ratio */
-    border-radius: 100%; /* If you want it to be a circle */
-    object-fit: cover; /* This ensures the image covers the area without stretching */
+      margin-left: 24%;
+      margin-top: 2%;
+      margin-bottom: 0%;
+      width: 50%; /* Adjust the width as needed, can be less than 100% */
+      height: auto; /* This maintains the aspect ratio */
+      border-radius: 100%; /* If you want it to be a circle */
+      object-fit: cover; /* This ensures the image covers the area without stretching */
     }
-
 
     .menu-toggle {
         display: none; /* Hidden for pc */
@@ -92,8 +85,6 @@
     .header{
         border-radius: 0 0 20px 20px;
         background-color: rgb(28, 58, 88);
-        width: 90%;
-        margin-left: auto;
         
       }
 
@@ -142,8 +133,10 @@
 <body>
 
   <header class ="header">
-    <h1 style="color: #ffffff" >Marcin Jedrych</h1>
-    <p>Statistical data-analysis - Computational statistics | Experimental Psychology - Neuroscience</p>
+    <h1 style="color: #ffffff">Marcin Jedrych</h1>
+    <!--
+      <p>Statistical data-analysis - Computational statistics | Experimental Psychology - Neuroscience</p>
+        -->
   </header>
 
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
@@ -155,39 +148,25 @@
     <a href="javascript:void(0);" onclick="loadContent('Family & friends')">Family & friends</a>
   </div>
 
-  <section id="home">
-    
+  <section id="home" class="visible">
     <div class="home-section" id="profile">
-  <img id="profile-pic" src="ik.jpg" alt="Profile Picture">
-  <h1>Welcome to my personal website!</h1>
-  <style>
-    @media only screen and (min-width: 801px) {
-      #profile h1 {
-        margin-left: 15%;
-      }
-    }
-  </style>
-</div>
-
-
-
+      <img id="profile-pic" src="ik.jpg" alt="Profile Picture">
+      <h1>Welcome to my personal website!</h1>
+    </div>
     <div class="home-section" id="connect">
-    <h2>Connect with Me</h2>
-    <ul class="social-links">
-      <li><a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165" ><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-      <li><a href="https://github.com/marcinjedrych" ><i class="fab fa-github"></i> GitHub</a></li>
-    </ul>
-  </div>
-
-  <div class="home-section" id="games">
-    <h2>Games</h2>
-    <ul class="social-links">
-      <li><a href="javascript:void(0);" onclick="checkPassword()"><i class="fab fa-tassn"></i> Tassen</a></li>
-    </ul>
-  </div>
-      
+      <h2>Connect with Me</h2>
+      <ul class="social-links">
+        <li><a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165" ><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="https://github.com/marcinjedrych" ><i class="fab fa-github"></i> GitHub</a></li>
+      </ul>
+    </div>
+    <div class="home-section" id="games">
+      <h2>Games</h2>
+      <ul class="social-links">
+        <li><a href="javascript:void(0);" onclick="checkPassword()"><i class="fab fa-tassn"></i> Tassen</a></li>
+      </ul>
+    </div>
   </section>
-
 
   <section id="pictures">
     <h2>Pictures</h2>
@@ -246,7 +225,12 @@
       }
     };
 
-        function checkPassword() {
+    // Ensure the home section is visible when the page loads
+    window.onload = function() {
+      loadContent('home');
+    };
+
+    function checkPassword() {
       var password = prompt("Enter the password to access Tassen:");
       if (password === "pils2000") {
         window.location.href = "//tassn.netlify.app";
