@@ -186,59 +186,64 @@
   <!-- Add additional sections as needed -->
 
   <script>
-    function toggleMenu() {
-      var menuToggle = document.querySelector('.menu-toggle');
-      var sidebar = document.querySelector('.sidebar');
-      menuToggle.classList.toggle('active');
-      sidebar.classList.toggle('active');
+  function toggleMenu() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var sidebar = document.querySelector('.sidebar');
+    menuToggle.classList.toggle('active');
+    sidebar.classList.toggle('active');
+  }
+
+  // Load Content Function
+  function loadContent(pageId) {
+    // Hide all sections
+    document.querySelectorAll('section').forEach(function(section) {
+      section.style.display = 'none';
+    });
+
+    // Show the requested section
+    var sectionToShow = document.getElementById(pageId);
+    if (sectionToShow) {
+      sectionToShow.style.display = 'block';
+    } else {
+      console.error('Section not found:', pageId);
     }
 
-    // Load Content Function
-    function loadContent(pageId) {
-      // Hide all sections
-      document.querySelectorAll('section').forEach(function(section) {
-        section.style.display = 'none';
-      });
-
-      // Show the requested section
-      var sectionToShow = document.getElementById(pageId);
-      if (sectionToShow) {
-        sectionToShow.style.display = 'block';
-      } else {
-        console.error('Section not found:', pageId);
-      }
-
-      // Close the sidebar on mobile after selection
-      if(window.innerWidth < 768) {
-        toggleMenu();
-      }
+    // Close the sidebar on mobile after selection
+    if(window.innerWidth < 768) {
+      toggleMenu();
     }
+  }
 
-    // Adjust visibility on screen resize
-    window.onresize = function() {
-      if(window.innerWidth < 768) {
-        document.querySelector('.menu-toggle').style.display = 'block';
-      } else {
-        document.querySelector('.menu-toggle').style.display = 'none';
-        document.querySelector('.sidebar').classList.remove('active');
-        document.querySelector('.menu-toggle').classList.remove('active');
-      }
-    };
-
-    // Ensure the home section is visible when the page loads
-    window.onload = function() {
-      loadContent('home');
-    };
-
-    function checkPassword() {
-      var password = prompt("Enter the password to access Tassen:");
-      if (password === "pils2000") {
-        window.location.href = "//tassn.netlify.app";
-      } else {
-        alert("Incorrect password. Please try again.");
-      }
+  // Adjust visibility on screen resize
+  window.onresize = function() {
+    if(window.innerWidth < 768) {
+      document.querySelector('.menu-toggle').style.display = 'block';
+    } else {
+      document.querySelector('.menu-toggle').style.display = 'none';
+      document.querySelector('.sidebar').classList.remove('active');
+      document.querySelector('.menu-toggle').classList.remove('active');
     }
-  </script>
+  };
+
+  // Ensure the home section is visible and sidebar is hidden when the page loads
+  window.onload = function() {
+    loadContent('home');
+    if(window.innerWidth < 768) {
+      document.querySelector('.menu-toggle').classList.remove('active');
+      document.querySelector('.sidebar').classList.remove('active');
+    }
+  };
+
+  function checkPassword() {
+    var password = prompt("Enter the password to access Tassen:");
+    if (password === "pils2000") {
+      window.location.href = "//tassn.netlify.app";
+    } else {
+      alert("Incorrect password. Please try again.");
+    }
+  }
+</script>
+
 
 </body>
 </html>
