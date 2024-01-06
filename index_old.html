@@ -10,6 +10,7 @@
     /* Base Styles */
     body {
       padding-left: 250px; /* Space for sidebar */
+      background-color:#b6cfe3;
     }
 
     .social-links .fa-github {
@@ -29,6 +30,7 @@
       overflow-y: auto;
       transition: transform 0.3s;
       border-radius: 0 10px 10px 0px;
+      overflow-y: hidden;
     }
 
     .sidebar a {
@@ -48,42 +50,22 @@
       color: rgb(255, 255, 255);
     }
 
-    /* Sections hidden by default except home */
-    section {
-      display: none;
-    }
-
-    section#home {
-      display: block;
-      margin-top: 3%;
-      background-color:rgb(28, 58, 88);
-      border-radius: 10px;
-      width: 90%
-    }
-
-    .home-section {
+    .home-section, 
+    .home-section2,
+    .home-section3 {
       background-color: #ffffff; /* Or any color you prefer */
-      padding: 5%;
-      padding-left: 3%;
-      width: 100%;
-      margin-top: 3%;
-      margin-left: 1%;
-      border-color: #5f0303;
-      width: 90%;
-      border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
     }
 
     #profile-pic {
-    margin-left: 24%;
-    margin-top: 2%;
-    margin-bottom: 0%;
-    width: 50%; /* Adjust the width as needed, can be less than 100% */
-    height: auto; /* This maintains the aspect ratio */
-    border-radius: 100%; /* If you want it to be a circle */
-    object-fit: cover; /* This ensures the image covers the area without stretching */
+      margin-left: 24%;
+      margin-top: 2%;
+      margin-bottom: 0%;
+      width: 50%; /* Adjust the width as needed, can be less than 100% */
+      height: auto; /* This maintains the aspect ratio */
+      border-radius: 100%; /* If you want it to be a circle */
+      object-fit: cover; /* This ensures the image covers the area without stretching */
     }
-
 
     .menu-toggle {
         display: none; /* Hidden for pc */
@@ -92,7 +74,7 @@
     .header{
         border-radius: 0 0 20px 20px;
         background-color: rgb(28, 58, 88);
-        margin-left: -40%;
+        
       }
 
     /* Mobile Styles */
@@ -140,8 +122,10 @@
 <body>
 
   <header class ="header">
-    <h1 style="color: #ffffff" >Marcin Jedrych</h1>
-    <p>Statistical data-analysis - Computational statistics | Experimental Psychology - Neuroscience</p>
+    <h1 style="color: #ffffff">Marcin Jedrych</h1>
+    <!--
+      <p>Statistical data-analysis - Computational statistics | Experimental Psychology - Neuroscience</p>
+        -->
   </header>
 
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
@@ -153,106 +137,117 @@
     <a href="javascript:void(0);" onclick="loadContent('Family & friends')">Family & friends</a>
   </div>
 
-  <section id="home">
+  <section class="home-section" id="home-section">
+
+      <img id="profile-pic" src="ik.jpg" alt="Profile Picture">
+      <h1>Welcome to my personal website!</h1>
     
-    <div class="home-section" id="profile">
-  <img id="profile-pic" src="ik.jpg" alt="Profile Picture">
-  <h1>Welcome to my personal website!</h1>
-  <style>
-    @media only screen and (min-width: 801px) {
-      #profile h1 {
-        margin-left: 15%;
-      }
-    }
-  </style>
-</div>
-
-
-
-    <div class="home-section" id="connect">
-    <h2>Connect with Me</h2>
-    <ul class="social-links">
-      <li><a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165" ><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-      <li><a href="https://github.com/marcinjedrych" ><i class="fab fa-github"></i> GitHub</a></li>
-    </ul>
-  </div>
-
-  <div class="home-section" id="games">
-    <h2>Games</h2>
-    <ul class="social-links">
-      <li><a href="javascript:void(0);" onclick="checkPassword()"><i class="fab fa-tassn"></i> Tassen</a></li>
-    </ul>
-  </div>
-      
   </section>
 
+  <section class="home-section2" id="home-section2">
+
+      <h2>Connect with Me</h2>
+      <ul class="social-links">
+        <li><a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165" ><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="https://github.com/marcinjedrych" ><i class="fab fa-github"></i> GitHub</a></li>
+      </ul>
+
+    </section>
+
+  <section class="home-section3" id="home-section3">
+
+      <h2>Games</h2>
+      <ul class="social-links">
+        <li><a href="javascript:void(0);" onclick="checkPassword()"><i class="fab fa-tassn"></i> Tassen</a></li>
+      </ul>
+
+  </section>
 
   <section id="pictures">
+
     <h2>Pictures</h2>
     <p>There will come pictures here soon.</p>
+
   </section>
 
   <section id="code">
+
     <h2>Code</h2>
     <p>Code related content will be displayed here.</p>
+
   </section>
 
   <section id="Family &amp; friends">
+
     <h2>Family and friends</h2>
     <p>Content for family and friends</p>
+
   </section>
 
-  <!-- Add additional sections as needed -->
-
   <script>
-    function toggleMenu() {
-      var menuToggle = document.querySelector('.menu-toggle');
-      var sidebar = document.querySelector('.sidebar');
-      menuToggle.classList.toggle('active');
-      sidebar.classList.toggle('active');
+  function toggleMenu() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var sidebar = document.querySelector('.sidebar');
+    menuToggle.classList.toggle('active');
+    sidebar.classList.toggle('active');
+  }
+
+  function loadContent(pageId) {
+  // Hide all sections
+  document.querySelectorAll('section').forEach(function(section) {
+    section.style.display = 'none';
+  });
+
+  // Special case for 'home' which shows two sections
+  if(pageId === 'home') {
+    document.getElementById('home-section').style.display = 'block';
+    document.getElementById('home-section2').style.display = 'block';
+    document.getElementById('home-section3').style.display = 'block';
+  } else {
+    // Show the requested section for other pageIds
+    var sectionToShow = document.getElementById(pageId);
+    if (sectionToShow) {
+      sectionToShow.style.display = 'block';
+    } else {
+      console.error('Section not found:', pageId);
     }
+  }
 
-    // Load Content Function
-    function loadContent(pageId) {
-      // Hide all sections
-      document.querySelectorAll('section').forEach(function(section) {
-        section.style.display = 'none';
-      });
+  // Close the sidebar on mobile after selection
+  if(window.innerWidth < 768) {
+    toggleMenu();
+  }
+}
 
-      // Show the requested section
-      var sectionToShow = document.getElementById(pageId);
-      if (sectionToShow) {
-        sectionToShow.style.display = 'block';
-      } else {
-        console.error('Section not found:', pageId);
-      }
-
-      // Close the sidebar on mobile after selection
-      if(window.innerWidth < 768) {
-        toggleMenu();
-      }
+  // Adjust visibility on screen resize
+  window.onresize = function() {
+    if(window.innerWidth < 768) {
+      document.querySelector('.menu-toggle').style.display = 'block';
+    } else {
+      document.querySelector('.menu-toggle').style.display = 'none';
+      document.querySelector('.sidebar').classList.remove('active');
+      document.querySelector('.menu-toggle').classList.remove('active');
     }
+  };
 
-    // Adjust visibility on screen resize
-    window.onresize = function() {
-      if(window.innerWidth < 768) {
-        document.querySelector('.menu-toggle').style.display = 'block';
-      } else {
-        document.querySelector('.menu-toggle').style.display = 'none';
-        document.querySelector('.sidebar').classList.remove('active');
-        document.querySelector('.menu-toggle').classList.remove('active');
-      }
-    };
-
-        function checkPassword() {
-      var password = prompt("Enter the password to access Tassen:");
-      if (password === "pils2000") {
-        window.location.href = "//tassn.netlify.app";
-      } else {
-        alert("Incorrect password. Please try again.");
-      }
+  // Ensure the home section is visible and sidebar is hidden when the page loads
+  window.onload = function() {
+    loadContent('home');
+    if(window.innerWidth < 768) {
+      document.querySelector('.menu-toggle').classList.remove('active');
+      document.querySelector('.sidebar').classList.remove('active');
     }
-  </script>
+  };
+
+  function checkPassword() {
+    var password = prompt("Enter the password to access Tassen:");
+    if (password === "pils2000") {
+      window.location.href = "//tassn.netlify.app";
+    } else {
+      alert("Incorrect password. Please try again.");
+    }
+  }
+</script>
 
 </body>
 </html>
