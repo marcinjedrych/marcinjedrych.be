@@ -11,6 +11,7 @@
     body {
       padding-left: 250px; /* Space for sidebar */
       background-color:#b6cfe3;
+      padding-top: 130px;
     }
 
     .social-links .fa-github {
@@ -71,11 +72,16 @@
         display: none; /* Hidden for pc */
     }
 
-    .header{
+    .header {
+        position: fixed; /* This will make the header fixed at the top */
+        width: 100%; /* Ensures the header extends full width */
+        top: 0; /* Aligns the header to the top */
+        z-index: 1000; /* Ensures the header stays on top of other elements */
         border-radius: 0 0 20px 20px;
+        height: 14%;
+        padding-bottom: 3%;
         background-color: rgb(28, 58, 88);
-        
-      }
+    }
 
     /* Mobile Styles */
     @media (max-width: 768px) {
@@ -123,9 +129,7 @@
 
   <header class ="header">
     <h1 style="color: #ffffff">Marcin Jedrych</h1>
-    <!--
       <p>Statistical data-analysis - Computational statistics | Experimental Psychology - Neuroscience</p>
-        -->
   </header>
 
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
