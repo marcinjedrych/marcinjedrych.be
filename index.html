@@ -43,11 +43,11 @@
 
     .sidebar a.active {
       background-color: #125683e7;
-      color: rgb(129, 19, 19);
+      color: rgb(90, 12, 12);
     }
 
     .sidebar a:hover {
-      background-color: #5f0303;
+      background-color: #480707;
       color: rgb(255, 255, 255);
     }
 
@@ -74,13 +74,12 @@
 
     .header {
         position: fixed; /* This will make the header fixed at the top */
-        width: 100%; /* Ensures the header extends full width */
+        width: 120%; /* Ensures the header extends full width */
         top: 0; /* Aligns the header to the top */
         z-index: 1000; /* Ensures the header stays on top of other elements */
         border-radius: 0 0 20px 20px;
-        height: 14%;
-        padding-bottom: 3%;
         background-color: rgb(28, 58, 88);
+        margin-left: -28%;
     }
 
     /* Mobile Styles */
@@ -93,14 +92,15 @@
       .header{
         border-radius: 0 0 20px 20px;
         background-color: rgb(28, 58, 88);
-        margin-left: 0;
+        margin-left: -25%;
+        width: 120%;
       }
 
       .sidebar {
-        margin-top: 0px;
-        width: 90%; /* Adjusted width */
+        margin-top: 10%;
+        width: 100%; /* Adjusted width */
         transform: translateX(-100%); /* Start off-screen */
-        background-color:rgb(28, 58, 88);
+        background-color:rgb(7, 78, 85);
       }
 
       .menu-toggle {
@@ -129,7 +129,9 @@
 
   <header class ="header">
     <h1 style="color: #ffffff">Marcin Jedrych</h1>
+    <!--
       <p>Statistical data-analysis - Computational statistics | Experimental Psychology - Neuroscience</p>
+        -->
   </header>
 
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
