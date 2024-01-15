@@ -1,55 +1,83 @@
-// script.js
-const canvas = document.getElementById('plinkoCanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+// Import Matter.js modules
+const { Engine, Render, Runner, World, Bodies, MouseConstraint, Mouse } = Matter;
 
-// Game variables
-let balls = [];
-const ballCount = 10;
-const ballRadius = 10;
+// Create an engine
+const engine = Engine.create();
+const { world } = engine;
 
-// Initialize balls
-function initBalls() {
-    for (let i = 0; i < ballCount; i++) {
-        balls.push({
-            x: Math.random() * canvas.width,
-            y: 0,
-            dy: 2 + Math.random() * 3, // vertical speed
-        });
+// Create a renderer
+const render = Render.create({
+    element: document.body,
+    engine: engine,
+    canvas: document.getElementById('plinkoCanvas'),
+    options: {
+        wireframes: false
+    }
+});
+
+Render.run(render);
+
+// Create a runner
+const runner = Runner.create();
+Runner.run(runner, engine);
+
+// Add mouse control
+const mouse = Mouse.create(render.canvas);
+const mouseConstraint = MouseConstraint.create(engine, {
+    mouse: mouse,
+    constraint: {
+        stiffness: 0.2,
+        render: {
+            visible: false
+        }
+    }
+});
+World.add(world, mouseConstraint);
+
+// Keep the mouse in sync with rendering
+render.mouse = mouse;
+// Create Plinko pegs in a pyramid shape
+const pegs = [];
+const rows = 15; // Adjust the number of rows for the pyramid shape
+const pegSpacingX = 40; // Horizontal spacing between pegs
+const pegSpacingY = 40; // Vertical spacing between pegs
+const startX = render.options.width / 2; // Starting point for the first peg in the row
+const startY = 0; // Vertical starting point for the pegs
+
+for (let row = 3; row < rows; row++) {
+    for (let col = 0; col <= row; col++) {
+        const x = startX - row * pegSpacingX / 2 + col * pegSpacingX;
+        const y = startY + row * pegSpacingY;
+        const peg = Bodies.circle(x, y, 4, { isStatic: true, render: { fillStyle: '#ffffff' } });
+        pegs.push(peg);
     }
 }
 
-// Draw balls
-function drawBalls() {
-    balls.forEach(ball => {
-        ctx.beginPath();
-        ctx.arc(ball.x, ball.y, ballRadius, 0, Math.PI * 2);
-        ctx.fillStyle = 'blue';
-        ctx.fill();
-        ctx.closePath();
-    });
-}
+World.add(world, pegs);
 
-// Update game state
-function update() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBalls();
 
-    // Update ball positions
-    balls.forEach(ball => {
-        ball.y += ball.dy;
+// Adjust the base position if necessary
+const baseHeight = 20; // Height of the base
+const base = Bodies.rectangle(render.options.width / 2, render.options.height - baseHeight / 2, render.options.width, baseHeight, { isStatic: true, render: { fillStyle: '#ffffff' } });
+World.add(world, base);
 
-        // Reset ball to the top once it falls out of the canvas
-        if (ball.y > canvas.height) {
-            ball.y = 0;
-            ball.dy = 2 + Math.random() * 3;
+// Function to drop a ball from the top center
+function dropBall() {
+    let ball = Bodies.circle(render.options.width / 2, 30, 12, {
+        restitution: 0.6, // This will give the ball a bit of a bounce
+        render: {
+            fillStyle: '#ff0000' // Color the ball red (or any color you prefer)
         }
     });
-
-    requestAnimationFrame(update);
+    World.add(world, ball);
 }
 
-// Start game
-initBalls();
-update();
+
+// Add event listener to the drop button
+document.getElementById('drop-button').addEventListener('click', dropBall);
+
+// Start the Matter.js engine
+Engine.run(engine);
+Render.run(render);
+
+
