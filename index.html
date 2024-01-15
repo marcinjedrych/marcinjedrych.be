@@ -281,33 +281,6 @@
   var plinkoSection = document.getElementById('plinko-game');
   plinkoSection.style.display = 'block';
 
-  // Clear existing content (if any)
-  plinkoSection.innerHTML = '';
-
-  // Load the Plinko game HTML
-  fetch('plinko.html')
-    .then(response => response.text())
-    .then(html => {
-      plinkoSection.innerHTML = html;
-    })
-    .catch(error => console.error('Error loading Plinko HTML:', error));
-
-  // Load CSS for Plinko
-  var head = document.head;
-  var plinkoCSS = document.createElement('link');
-  plinkoCSS.type = 'text/css';
-  plinkoCSS.rel = 'stylesheet';
-  plinkoCSS.href = 'plinko.css';
-  head.appendChild(plinkoCSS);
-
-  // Load JavaScript for Plinko
-  var body = document.body;
-  var plinkoScript = document.createElement('script');
-  plinkoScript.type = 'text/javascript';
-  plinkoScript.src = 'plinko.js';
-  body.appendChild(plinkoScript);
-}
-
 </script>
 
 </body>
