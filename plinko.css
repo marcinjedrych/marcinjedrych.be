@@ -34,6 +34,7 @@ button {
 
 		.drop {
 			position: relative;
+            margin-left: 185%;
 			display: inline-flex;
 
 			button {
@@ -44,67 +45,9 @@ button {
 				background: lime;
 				width: 7em;
 			}
-
-			input[type="checkbox"] {
-				display: none;
-
-				&:not(:checked) + label {
-					.checked {
-						visibility: hidden;
-					}
-				}
-			}
-
-			label[for="checkbox"] {
-				position: absolute;
-				left: calc(100%);
-				height: 100%;
-				cursor: pointer;
-				flex-shrink: 0;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				border-radius: 0 10px 10px 0;
-				padding: 0 0.5em;
-				opacity: 0.8;
-
-				&:hover {
-					opacity: 1;
-					.box {
-						background-color: rgba(255, 255, 255, 0.1);
-					}
-				}
-				&:active {
-					opacity: 0.8;
-				}
-
-				.box {
-					position: relative;
-					background-color: rgba(255, 255, 255, 0.1);
-					border-radius: 0.2em;
-					width: 0.8em;
-					height: 0.8em;
-
-					&:after {
-						font-size: 0.6em;
-						vertical-align: middle;
-						position: absolute;
-						left: calc(100% + 0.4em);
-						color: #fff;
-						content: "auto";
-					}
-
-					svg {
-						position: absolute;
-						left: 50%;
-						top: 50%;
-						transform: translate(-50%, -50%);
-					}
 				}
 			}
 		}
-	}
-}
 
 #balls,
 #multiplier {
