@@ -62,9 +62,9 @@
       color: rgb(255, 255, 255);
     }
 
-    .home-section, 
-    .home-section2,
-    .home-section3 {
+    .Home-section, 
+    .Home-section2,
+    .Home-section3 {
       background-color: #ffffff; /* Or any color you prefer */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
     }
@@ -128,7 +128,7 @@
         transform: translateX(0%); /* Bring sidebar on-screen when active */
       }
 
-      #home::after {
+      #Home::after {
         content: "";
         display: table;
         clear: both;
@@ -216,10 +216,10 @@
   });
 
   // Special case for 'home' which shows two sections
-  if(pageId === 'home') {
-    document.getElementById('home-section').style.display = 'block';
-    document.getElementById('home-section2').style.display = 'block';
-    document.getElementById('home-section3').style.display = 'block';
+  if(pageId === 'Home') {
+    document.getElementById('Home-section').style.display = 'block';
+    document.getElementById('Home-section2').style.display = 'block';
+    document.getElementById('Home-section3').style.display = 'block';
   } else {
     // Show the requested section for other pageIds
     var sectionToShow = document.getElementById(pageId);
@@ -249,7 +249,7 @@
 
   // Ensure the home section is visible and sidebar is hidden when the page loads
   window.onload = function() {
-    loadContent('home');
+    loadContent('Home');
     if(window.innerWidth < 768) {
       document.querySelector('.menu-toggle').classList.remove('active');
       document.querySelector('.sidebar').classList.remove('active');
