@@ -138,71 +138,50 @@
 </head>
 <body>
 
-  <header class ="header">
-    <h1 style="color: #ffffff">Marcin Jedrych</h1>
-    <!--
-      <p>Statistical data-analysis - Computational statistics | Experimental Psychology - Neuroscience</p>
-        -->
-  </header>
+<header class="header">
+  <h1 style="color: #ffffff">Marcin Jedrych</h1>
+</header>
 
-  <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
-  <div class="sidebar">
-    <br><br><br>
-    <a href="javascript:void(0);" onclick="loadContent('Home')">Home</a>
-    <a href="javascript:void(0);" onclick="loadContent('Pictures')">Pictures</a>
-    <!--<a href="javascript:void(0);" onclick="loadContent('code')">Code</a>-->
-    <a href="javascript:void(0);" onclick="loadContent('Family & friends')">Family & friends</a>
-  </div>
+<div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+<div class="sidebar">
+  <br><br><br>
+  <a href="javascript:void(0);" onclick="loadContent('Home')">Home</a>
+  <a href="javascript:void(0);" onclick="loadContent('Pictures')">Pictures</a>
+  <a href="javascript:void(0);" onclick="loadContent('Family & friends')">Family & friends</a>
+</div>
 
-  <section class="Home-section" id="Home-section">
+<section class="Home-section" id="Home-section">
+  <img id="profile-pic" src="ik.jpg" alt="Profile Picture">
+  <h1>Welcome to my personal website!</h1>
+</section>
 
-      <img id="profile-pic" src="ik.jpg" alt="Profile Picture">
-      <h1>Welcome to my personal website!</h1>
-    
-  </section>
+<section class="Home-section2" id="Home-section2">
+  <h2>Connect with Me</h2>
+  <ul class="social-links">
+    <li><a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+    <li><a href="https://github.com/marcinjedrych"><i class="fab fa-github"></i> GitHub</a></li>
+  </ul>
+</section>
 
-  <section class="Home-section2" id="Home-section2">
+<section id="Pictures">
+  <h2>Pictures</h2>
+  <p>There will come pictures here soon</p>
+</section>
 
-      <h2>Connect with Me</h2>
-      <ul class="social-links">
-        <li><a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165" ><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-        <li><a href="https://github.com/marcinjedrych" ><i class="fab fa-github"></i> GitHub</a></li>
-      </ul>
+<section id="FamilyFriends-description" style="display: none;">
+  <h1>Family and friends</h1>
+  <p>Content for family and friends</p>
+</section>
 
-    </section>
+<section id="FamilyFriends-games" style="display: none;">
+  <h2>Games</h2>
+  <ul class="social-links">
+    <li><a href="javascript:void(0);" onclick=""><i class="fa-solid fa-gamepad-modern"></i> Tassen</a></li>
+    <li><a href="plinko.html"><i class="fa-solid fa-gamepad-modern"></i> Plinko (in development)</a></li>
+  </ul>
+</section>
 
-  <section id="Pictures">
-
-    <h2>Pictures</h2>
-    <p>There will come pictures here soon</p>
-
-  </section>
-
-  <!--
-  <section id="code">
-
-    <h2>Code</h2>
-    <p>Code related content will be displayed here.</p>
-
-  </section>
-  -->
-
-  <section id="Family &amp; friends">
-
-    <h1>Family and friends</h1>
-    <p>Content for family and friends</p>
-
-    <h2>Games</h2>
-      <ul class="social-links">
-        <li><a href="javascript:void(0);" onclick=""><i class="fa-solid fa-gamepad-modern"></i> Tassen</a></li>
-        <li><a href="plinko.html"><i class="fa-solid fa-gamepad-modern"></i> Plinko (in development)</a></li>
-      </ul>
-
-  </section>
-
-
-  <script>
-    
+<script>
   function toggleMenu() {
     var menuToggle = document.querySelector('.menu-toggle');
     var sidebar = document.querySelector('.sidebar');
@@ -211,35 +190,32 @@
   }
 
   function loadContent(pageId) {
-  // Hide all sections
-  document.querySelectorAll('section').forEach(function(section) {
-    section.style.display = 'none';
-  });
+    document.querySelectorAll('section').forEach(function (section) {
+      section.style.display = 'none';
+    });
 
-  // Special case for 'home' which shows two sections
-  if(pageId === 'Home') {
-    document.getElementById('Home-section').style.display = 'block';
-    document.getElementById('Home-section2').style.display = 'block';
-    document.getElementById('Home-section3').style.display = 'block';
-  } else {
-    // Show the requested section for other pageIds
-    var sectionToShow = document.getElementById(pageId);
-    if (sectionToShow) {
-      sectionToShow.style.display = 'block';
+    if (pageId === 'Home') {
+      document.getElementById('Home-section').style.display = 'block';
+      document.getElementById('Home-section2').style.display = 'block';
+    } else if (pageId === 'Family & friends') {
+      document.getElementById('FamilyFriends-description').style.display = 'block';
+      document.getElementById('FamilyFriends-games').style.display = 'block';
     } else {
-      console.error('Section not found:', pageId);
+      var sectionToShow = document.getElementById(pageId);
+      if (sectionToShow) {
+        sectionToShow.style.display = 'block';
+      } else {
+        console.error('Section not found:', pageId);
+      }
+    }
+
+    if (window.innerWidth < 768) {
+      toggleMenu();
     }
   }
 
-  // Close the sidebar on mobile after selection
-  if(window.innerWidth < 768) {
-    toggleMenu();
-  }
-}
-
-  // Adjust visibility on screen resize
-  window.onresize = function() {
-    if(window.innerWidth < 768) {
+  window.onresize = function () {
+    if (window.innerWidth < 768) {
       document.querySelector('.menu-toggle').style.display = 'block';
     } else {
       document.querySelector('.menu-toggle').style.display = 'none';
@@ -248,16 +224,15 @@
     }
   };
 
-  // Ensure the home section is visible and sidebar is hidden when the page loads
-  window.onload = function() {
+  window.onload = function () {
     loadContent('Home');
-    if(window.innerWidth < 768) {
+    if (window.innerWidth < 768) {
       document.querySelector('.menu-toggle').classList.remove('active');
       document.querySelector('.sidebar').classList.remove('active');
     }
   };
 
-  /*
+    /*
   function checkPassword() {
     var password = prompt("Enter the password to access Tassen:");
     if (password === "pils2000") {
