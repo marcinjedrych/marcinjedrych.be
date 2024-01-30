@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-88Z4S96EG2"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G50MHDTLK2"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-88Z4S96EG2');
+  gtag('config', 'G-G50MHDTLK2');
+
 </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marcin Jedrych - Personal Website</title>
@@ -60,9 +62,9 @@
       color: rgb(255, 255, 255);
     }
 
-    .home-section, 
-    .home-section2,
-    .home-section3 {
+    .Home-section, 
+    .Home-section2,
+    .Home-section3 {
       background-color: #ffffff; /* Or any color you prefer */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
     }
@@ -126,7 +128,7 @@
         transform: translateX(0%); /* Bring sidebar on-screen when active */
       }
 
-      #home::after {
+      #Home::after {
         content: "";
         display: table;
         clear: both;
@@ -136,70 +138,60 @@
 </head>
 <body>
 
-  <header class ="header">
-    <h1 style="color: #ffffff">Marcin Jedrych</h1>
-    <!--
-      <p>Statistical data-analysis - Computational statistics | Experimental Psychology - Neuroscience</p>
-        -->
-  </header>
+<header class="header">
+  <h1 style="color: #ffffff">Marcin Jedrych</h1>
+</header>
 
-  <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
-  <div class="sidebar">
-    <br><br><br>
-    <a href="javascript:void(0);" onclick="loadContent('home')">Home</a>
-    <a href="javascript:void(0);" onclick="loadContent('pictures')">Pictures</a>
-    <a href="javascript:void(0);" onclick="loadContent('code')">Code</a>
-    <a href="javascript:void(0);" onclick="loadContent('Family & friends')">Family & friends</a>
+<div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+<div class="sidebar">
+  <br><br><br>
+  <a href="javascript:void(0);" onclick="loadContent('Home')">Home</a>
+  <a href="javascript:void(0);" onclick="loadContent('Pictures')">Pictures</a>
+  <a href="javascript:void(0);" onclick="loadContent('Family & friends')">Family & friends</a>
+</div>
+
+<section class="Home-section" id="Home-section">
+  <img id="profile-pic" src="ik.jpg" alt="Profile Picture">
+  <h1>Welcome to my personal website!</h1>
+</section>
+
+<section class="Home-section2" id="Home-section2">
+  <h2>Connect with Me</h2>
+  <ul class="social-links">
+    <li><a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+    <li><a href="https://github.com/marcinjedrych"><i class="fab fa-github"></i> GitHub</a></li>
+  </ul>
+</section>
+
+<section id="Pictures">
+  <h2>Pictures</h2>
+  <p>There will come pictures here soon</p>
+</section>
+
+<section id="FamilyFriends-description" style="display: none;">
+  <h1>Family and friends</h1>
+  <p>Content for family and friends</p>
+</section>
+
+<section id="FamilyFriends-games" style="display: none;">
+  <h2>Games</h2>
+  <ul class="social-links">
+    <li><a href="javascript:void(0);" onclick=""><i class="fa-solid fa-gamepad-modern"></i> Tassen</a></li>
+    <li><a href="plinko.html"><i class="fa-solid fa-gamepad-modern"></i> Plinko (in development)</a></li>
+  </ul>
+</section>
+
+<section id="FamilyFriends-password-input" style="display: none; box-sizing: border-box; height: 150px; padding: 10px; display: flex; flex-direction: column; justify-content: center; width: 100%;"> <!-- Set a fixed height for the container and use flex properties to align vertically -->
+  <h2 style="margin-bottom: 30px; width: 100%;">Enter Password</h2> <!-- Add margin-bottom to create space between h2 and input box -->
+  <p id="incorrect-password-message" style="color: red; font-size: 12px; display: none; margin-top: -15px; margin-bottom: 5px;">Incorrect password</p>
+  <div style="display: flex; align-items: center;"> <!-- Use flex properties to align items horizontally -->
+    <input type="password" id="password-input" placeholder="Password" style="margin-top: 0px; width: 150px;"> <!-- Set width for the input box -->
+    <button id="password-submit" onclick="checkPassword()" style="width: 80px; margin-left: 10px;">Submit</button> <!-- Set margin-left for the submit button -->
   </div>
+</section>
 
-  <section class="home-section" id="home-section">
 
-      <img id="profile-pic" src="ik.jpg" alt="Profile Picture">
-      <h1>Welcome to my personal website!</h1>
-    
-  </section>
-
-  <section class="home-section2" id="home-section2">
-
-      <h2>Connect with Me</h2>
-      <ul class="social-links">
-        <li><a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165" ><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-        <li><a href="https://github.com/marcinjedrych" ><i class="fab fa-github"></i> GitHub</a></li>
-      </ul>
-
-    </section>
-
-  <section class="home-section3" id="home-section3">
-
-      <h2>Games</h2>
-      <ul class="social-links">
-        <li><a href="javascript:void(0);" onclick="checkPassword()"><i class="fab fa-tassn"></i> Tassen</a></li>
-      </ul>
-
-  </section>
-
-  <section id="pictures">
-
-    <h2>Pictures</h2>
-    <p>There will come pictures here soon.</p>
-
-  </section>
-
-  <section id="code">
-
-    <h2>Code</h2>
-    <p>Code related content will be displayed here.</p>
-
-  </section>
-
-  <section id="Family &amp; friends">
-
-    <h2>Family and friends</h2>
-    <p>Content for family and friends</p>
-
-  </section>
-
-  <script>
+<script>
   function toggleMenu() {
     var menuToggle = document.querySelector('.menu-toggle');
     var sidebar = document.querySelector('.sidebar');
@@ -208,35 +200,69 @@
   }
 
   function loadContent(pageId) {
-  // Hide all sections
-  document.querySelectorAll('section').forEach(function(section) {
-    section.style.display = 'none';
-  });
+    document.querySelectorAll('section').forEach(function (section) {
+      section.style.display = 'none';
+    });
 
-  // Special case for 'home' which shows two sections
-  if(pageId === 'home') {
-    document.getElementById('home-section').style.display = 'block';
-    document.getElementById('home-section2').style.display = 'block';
-    document.getElementById('home-section3').style.display = 'block';
-  } else {
-    // Show the requested section for other pageIds
-    var sectionToShow = document.getElementById(pageId);
-    if (sectionToShow) {
-      sectionToShow.style.display = 'block';
+    if (pageId === 'Home') {
+      document.getElementById('Home-section').style.display = 'block';
+      document.getElementById('Home-section2').style.display = 'block';
+    } else if (pageId === 'Family & friends') {
+      showPasswordInput();
     } else {
-      console.error('Section not found:', pageId);
+      var sectionToShow = document.getElementById(pageId);
+      if (sectionToShow) {
+        sectionToShow.style.display = 'block';
+      } else {
+        console.error('Section not found:', pageId);
+      }
+    }
+
+    if (window.innerWidth < 768) {
+      toggleMenu();
     }
   }
 
-  // Close the sidebar on mobile after selection
-  if(window.innerWidth < 768) {
-    toggleMenu();
-  }
-}
+  function showPasswordInput() {
+    var passwordInputSection = document.getElementById('FamilyFriends-password-input');
+    passwordInputSection.style.display = 'block';
 
-  // Adjust visibility on screen resize
-  window.onresize = function() {
-    if(window.innerWidth < 768) {
+    var passwordInput = document.getElementById('password-input');
+    passwordInput.value = ''; // Clear the input field
+
+    var submitButton = document.getElementById('password-submit');
+    var incorrectPasswordMessage = document.getElementById('incorrect-password-message');
+
+    submitButton.onclick = function () {
+      checkPassword(passwordInput.value, incorrectPasswordMessage);
+    };
+
+    // Allow pressing Enter to submit the password
+    passwordInput.addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        submitButton.click();
+      } else {
+        incorrectPasswordMessage.style.display = 'none';
+      }
+    });
+  }
+
+  function checkPassword(enteredPassword, incorrectPasswordMessage) {
+    var correctPassword = "my-password-here"; // Change to your actual password
+
+    if (enteredPassword === correctPassword) {
+      document.getElementById('FamilyFriends-description').style.display = 'block';
+      document.getElementById('FamilyFriends-games').style.display = 'block';
+      document.getElementById('FamilyFriends-password-input').style.display = 'none';
+      incorrectPasswordMessage.style.display = 'none';
+    } else {
+      incorrectPasswordMessage.style.display = 'block';
+    }
+  }
+
+  window.onresize = function () {
+    if (window.innerWidth < 768) {
       document.querySelector('.menu-toggle').style.display = 'block';
     } else {
       document.querySelector('.menu-toggle').style.display = 'none';
@@ -245,23 +271,13 @@
     }
   };
 
-  // Ensure the home section is visible and sidebar is hidden when the page loads
-  window.onload = function() {
-    loadContent('home');
-    if(window.innerWidth < 768) {
+  window.onload = function () {
+    loadContent('Home');
+    if (window.innerWidth < 768) {
       document.querySelector('.menu-toggle').classList.remove('active');
       document.querySelector('.sidebar').classList.remove('active');
     }
   };
-
-  function checkPassword() {
-    var password = prompt("Enter the password to access Tassen:");
-    if (password === "pils2000") {
-      window.location.href = "//tassn.netlify.app";
-    } else {
-      alert("Incorrect password. Please try again.");
-    }
-  }
 </script>
 
 </body>
