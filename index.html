@@ -70,18 +70,32 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
     }
 
-    #profile-pic {
+   /* #profile-pic {
       margin-left: 34%;
       margin-top: 2%;
       margin-bottom: 0%;
-      width: 30%; /* Adjust the width as needed, can be less than 100% */
-      height: auto; /* This maintains the aspect ratio */
-      border-radius: 100%; /* If you want it to be a circle */
-      outline: 4px solid rgb(28, 58, 88); /* You can customize the outline style and color */
-      padding: 2px; /* Optional: Add padding to the container if needed */
+      width: 30%; 
+      height: auto; 
+      border-radius: 100%; 
+      outline: 4px solid rgb(28, 58, 88); 
+      padding: 2px; 
       display: inline-block; 
-      object-fit: cover; /* This ensures the image covers the area without stretching */
-    }
+      object-fit: cover; 
+    } */
+
+    #profile-pic {
+  margin-left: 34%; /* Adjust this value to better center the image as needed */
+  margin-top: 2%;
+  margin-bottom: 0%;
+  width: 30%; /* Adjust the width as needed, can be less than 100% */
+  height: auto; /* This maintains the aspect ratio */
+  border-radius: 100%; /* Makes the image round */
+  outline: 4px solid rgb(28, 58, 88); /* Outline style and color directly around the image */
+  display: inline-block;
+  object-fit: cover; /* Ensures the image covers the area without stretching */
+  padding: 0; /* No padding to ensure the outline is right against the image */
+}
+
 
     .menu-toggle {
         display: none; /* Hidden for pc */
