@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G50MHDTLK2"></script>
 <script>
@@ -13,357 +12,93 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcin Jedrych - Personal Website</title>
-<meta name="description" content="Welcome to my personal website! This is a test project to learn web development.">
-
-<!-- Open Graph tags -->
-<meta property="og:title" content="Marcin Jedrych - Personal Website">
-<meta property="og:description" content="Welcome to my personal website! This is a test project to learn web development.">
+<title>Marcin Jedrych</title>
+<meta name="description" content="Side projects by Marcin Jedrych.">
+<meta property="og:title" content="Marcin Jedrych">
+<meta property="og:description" content="Side projects by Marcin Jedrych.">
 <meta property="og:url" content="https://www.marcinjedrych.be">
-<!-- <meta property="og:image" content="URL_to_your_preferred_image"> -->
-
-  <!--
-    <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "WebPage",
-    "name": "Marcin Jedrych - Personal Website",
-    "description": "Welcome to my personal website! This is a test project to learn web development."
-  }
-  </script>
-  -->
-  
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta name="theme-color" content="#10131c">
 <link rel="icon" type="image/png" href="logo.png">
-<style>
-  
-  /* Base Styles */
-
-    *, *:before, *:after {
-  cursor: url('cursor.png'), auto;
-}
-    
-    body {
-      padding-left: 250px; /* Space for sidebar */
-      background-color:#b6cfe3;
-      padding-top: 130px;
-      /*cursor: url('cursor.png'), auto;*/
-    }
-
-/*   
-    a, button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"] {
-    cursor: url('cursor.png'), pointer;
-    }
-*/
-    .links a span:hover {
-    text-decoration: underline;
-}
-    .links .fa-github {
-      color: black;
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0;
-      padding-right: 250px;
-      margin-top: 150px;
-      left: 0;
-      width: 22%;
-      height: 100%;
-      background-color:rgb(28, 58, 88);
-      padding: 20px;
-      overflow-y: auto;
-      transition: transform 0.3s;
-      border-radius: 0 10px 10px 0px;
-      overflow-y: hidden;
-    }
-
-    .sidebar a {
-      display: block;
-      padding: 10px;
-      text-decoration:none;
-      color: #fefefe;
-    }
-
-    .sidebar a.active {
-      background-color: #125683e7;
-      color: rgb(90, 12, 12);
-    }
-
-    .sidebar a:hover {
-      background-color: #480707;
-      color: rgb(255, 255, 255);
-    }
-
-    /*
-    .Home-section, 
-    .Home-section2,
-    .Home-section3
-    .FamilyFriends-description
-    {
-      background-color: #ffffff; 
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 80%; 
-    } */
-
-    .Home-section, .Home-section2, .Home-section3, .CV-section, #FamilyFriends-password-input {
-    background-color: #ffffff;
-    width: 90%; /* or any other width */
-    left: 0px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Consistent styling */
-}
-
-#ppic {
-  margin-left: 34%; /* Center the image horizontally */
-  margin-top: 2%;
-  width: 200px; /* Set a specific width */
-  height: 200px; /* Set the same value for height to create a square */
-  border-radius: 50%; /* Ensures a perfect circle */
-  outline: 4px solid rgb(28, 58, 88); /* Stylish outline around the image */
-  padding: 2px;
-  display: inline-block;
-  object-fit: cover; /* Ensures the image covers the element's area */
-}
-
-    .menu-toggle {
-        display: none; /* Hidden for pc */
-    }
-
-    .header {
-        position: fixed; /* This will make the header fixed at the top */
-        width: 120%; /* Ensures the header extends full width */
-        top: 0; /* Aligns the header to the top */
-        z-index: 1000; /* Ensures the header stays on top of other elements */
-        border-radius: 0 0 20px 20px;
-        background-color: rgb(28, 58, 88);
-        margin-left: -28%;
-    }
-
-    ul {
-  list-style-type: none; /* Remove default bullets */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
-}
-
-    /* Mobile Styles */
-    @media (max-width: 768px) {
-      body {
-        padding-left: 55px; /* No sidebar padding on mobile */
-        padding-right: 20px;
-      }
-      
-        ul {
-        list-style-type: none; /* Remove default bullets */
-        padding: 0; /* Remove default padding */
-        margin: 0; /* Remove default margin */
-      }
-
-      .header{
-        border-radius: 0 0 20px 20px;
-        background-color: rgb(28, 58, 88);
-        margin-left: -25%;
-        width: 120%;
-      }
-
-      .sidebar {
-        margin-top: 15%;
-        width: 100%; /* Adjusted width */
-        transform: translateX(-100%); /* Start off-screen */
-        background-color:rgb(7, 78, 85);
-      }
-
-      .menu-toggle {
-        display: block; /* Hidden by default */
-        position: fixed;
-        top: 15px;
-        left: 10px;
-        font-size: 40px;
-        cursor: pointer;
-        z-index: 1000;
-      }
-
-      .menu-toggle.active + .sidebar {
-        transform: translateX(0%); /* Bring sidebar on-screen when active */
-      }
-
-      #Home::after {
-        content: "";
-        display: table;
-        clear: both;
-      }
-
-    #ppic {
-    margin-left: 8%; /* Move to the right on mobile */
-    margin-top: 1%; /* Move up on mobile */
-  }
-
-    .Home-section, .Home-section2, .Home-section3, .CV-section, #FamilyFriends-password-input {
-    width: 100%; /* Ensure the sections do not span the entire width */
-    margin: 15px auto; /* Center and add margin */
-    padding: 20px; /* Adjust padding if needed */
-    box-sizing: border-box; /* Include padding and border in width */
-  }
-
-  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
 
-<header class="header">
-  <h1 style="color: #ffffff; position: relative; top: -20px; right: -20px;">Marcin Jedrych</h1>
-</header>
+<canvas id="swarm" aria-hidden="true"></canvas>
 
-<div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
-<div class="sidebar">
-  <br><br><br>
-  <a href="javascript:void(0);" onclick="loadContent('Home')">Home</a>
-  <!--<a href="javascript:void(0);" onclick="loadContent('Pictures')">Pictures</a>-->
-  <a href="javascript:void(0);" onclick="loadContent('Family & friends')">Family & friends</a>
+<div class="layout">
+  <header class="intro">
+    <img class="me" src="img/me.jpg" alt="Marcin Jedrych" width="76" height="76">
+    <div class="intro-text">
+      <h1>Marcin Jedrych</h1>
+      <p class="sub fragile">Side projects</p>
+      <p class="about fragile">I work in data, and in my free time I build apps, games and whatever else I feel like.</p>
+    </div>
+    <nav class="socials">
+      <a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/marcinjedrych" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="cards" id="projects">
+    <article class="card" style="--accent:#ff8a3d" tabindex="0" data-title="Dishy" data-shots="img/shots/dishy-feature.jpg">
+      <div class="card-top">
+        <img src="img/dishy.png" alt="" width="48" height="48">
+        <h2>Dishy</h2>
+        <span class="tag">Android + iPhone</span>
+      </div>
+      <p class="fragile">Can't decide what to eat? Snap the menu, get a clean list of dishes, and let the wheel pick for you. Most scans run right on the phone, and AI only steps in when it has to.</p>
+      <p class="status">On its way to the Play Store</p>
+    </article>
+
+    <article class="card" style="--accent:#ffd23f" tabindex="0" data-title="Tassn.be" data-shots="img/shots/tassn-modes.jpg img/shots/tassn-game.jpg">
+      <div class="card-top">
+        <img src="img/tassn.png" alt="" width="48" height="48">
+        <h2>Tassn.be</h2>
+        <span class="tag">Web game</span>
+      </div>
+      <p class="fragile">A cup-toss drinking game for parties. It has accounts, friends, rooms, skins and challenges, and real players use it.</p>
+      <a class="card-link" href="https://tassn.be" target="_blank" rel="noopener">Play at tassn.be ↗</a>
+    </article>
+
+    <article class="card" style="--accent:#5ad1ff" tabindex="0" data-title="Couch Mode" data-shots="img/shots/couch-tv.jpg img/shots/couch-pad.jpg img/shots/couch-remote-apps.jpg img/shots/couch-remote-pad.jpg">
+      <div class="card-top">
+        <img src="img/couch.png" alt="" width="48" height="48">
+        <h2>Couch Mode</h2>
+        <span class="tag">Home hack</span>
+      </div>
+      <p class="fragile">Why buy a Chromecast? I turned an old laptop and a monitor into a smart TV. My phone is the remote, there's a TV-style home screen, and a Raspberry Pi in the middle runs it all.</p>
+      <p class="status">Runs only in my living room</p>
+    </article>
+
+    <article class="card" style="--accent:#7cf29c" tabindex="0" data-title="Finance app" data-shots="img/shots/finance-overview.jpg img/shots/finance-charts.jpg img/shots/finance-wealth.jpg">
+      <div class="card-top">
+        <img src="img/finance.png" alt="" width="48" height="48">
+        <h2>Finance app</h2>
+        <span class="tag">Web app</span>
+      </div>
+      <p class="fragile">It started as my own money tracker and grew into an app anyone can sign up for. It even logs Apple Pay payments straight from an iPhone Shortcut.</p>
+      <a class="card-link" href="https://personal-helper-app.netlify.app" target="_blank" rel="noopener">Try it ↗</a>
+    </article>
+  </main>
+
+  <aside class="plinko" id="plinko-card">
+    <div class="plinko-head">
+      <div><span class="bal" id="balance">$100</span><small>balance</small></div>
+      <small>Plinko · $10 per ball</small>
+    </div>
+    <canvas id="plinko" width="600" height="560" aria-label="Plinko, click to drop a ball"></canvas>
+    <div class="plinko-foot"><span id="last">Click the board to drop a ball</span><button id="refill" hidden>Get $100 more</button></div>
+  </aside>
 </div>
 
-<section class="Home-section" id="Home-section">
-  <img id="ppic" src="ik.jpg" alt="Picture">
-  <h1>Welcome to my personal website!</h1>
-  <p><i>This is a test project to learn web development.</i></p>
-</section>
+<dialog id="gallery">
+  <div class="gallery-head"><h3 id="gallery-title"></h3><div class="gallery-nav" id="gallery-nav"><button id="gal-prev" aria-label="Previous picture">‹</button><span id="gal-count"></span><button id="gal-next" aria-label="Next picture">›</button></div><button id="gallery-close" aria-label="Close">✕</button></div>
+  <div class="gallery-strip" id="gallery-strip"></div>
+</dialog>
 
-<section class="CV-section" id="CV-section">
-  <h2>Curriculum Vitae</h2>
-  <p></p>
-  <ul class="links">
-    <li><a href="CV Marcin Jedrych 2024 ENG V5.pdf" download><span>CV Marcin Jedrych 2024 (ENG)</span></a></li>
-  </ul>
-</section>
-
-<section class="Home-section2" id="Home-section2">
-  <h2>Connect</h2>
-  <ul class="links">
-    <li><a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165"><i class="fab fa-linkedin"></i> <span>LinkedIn</span></a></li>
-    <br>
-    <li><a href="https://github.com/marcinjedrych"><i class="fab fa-github"></i> <span>GitHub</span></a></li>
-  </ul>
-</section>
-
-  <!--
-<section id="Pictures">
-  <h2>Pictures</h2>
-  <p>There will come pictures here soon</p>
-</section>
--->
-  
-<section class="FamilyFriends-description" id="FamilyFriends-description">
-  <h1>Family and friends</h1>
-  <p>Content for family and friends</p>
-</section>
-
-<section id="FamilyFriends-games" style="display: none;">
-  <h2>Games</h2>
-  <ul class="links">
-    <li><a href="https://tassn.be" onclick=""><i class="fa-solid fa-gamepad-modern"></i> <span>Tassen</span></a></li>
-    <br>
-    <li><a href="plinko.html"><i class="fa-solid fa-gamepad-modern"></i> <span>Plinko (in development)</span></a></li>
-  </ul>
-</section>
-
-<section id="FamilyFriends-password-input" style="display: none; box-sizing: border-box; height: 150px; padding: 10px; display: flex; flex-direction: column; justify-content: center; width: 100%;"> <!-- Set a fixed height for the container and use flex properties to align vertically -->
-  <h2 style="margin-bottom: 30px; width: 100%;">Enter Password</h2> <!-- Add margin-bottom to create space between h2 and input box -->
-  <p id="incorrect-password-message" style="color: red; font-size: 12px; display: none; margin-top: -15px; margin-bottom: 5px;">Incorrect password</p>
-  <div style="display: flex; align-items: center;"> <!-- Use flex properties to align items horizontally -->
-    <input type="password" id="password-input" placeholder="Password" style="margin-top: 0px; width: 150px;"> <!-- Set width for the input box -->
-    <button id="password-submit" onclick="checkPassword()" style="width: 80px; margin-left: 10px;">Submit</button> <!-- Set margin-left for the submit button -->
-  </div>
-</section>
-  
-<script>
-  function toggleMenu() {
-    var menuToggle = document.querySelector('.menu-toggle');
-    var sidebar = document.querySelector('.sidebar');
-    menuToggle.classList.toggle('active');
-    sidebar.classList.toggle('active');
-  }
-
-  function loadContent(pageId) {
-    document.querySelectorAll('section').forEach(function (section) {
-      section.style.display = 'none';
-    });
-
-    if (pageId === 'Home') {
-      document.getElementById('Home-section').style.display = 'block';
-      document.getElementById('Home-section2').style.display = 'block';
-      document.getElementById('CV-section').style.display = 'block';
-    } else if (pageId === 'Family & friends') {
-      showPasswordInput();
-    } else {
-      var sectionToShow = document.getElementById(pageId);
-      if (sectionToShow) {
-        sectionToShow.style.display = 'block';
-      } else {
-        console.error('Section not found:', pageId);
-      }
-    }
-
-    if (window.innerWidth < 768) {
-      toggleMenu();
-    }
-  }
-
-  function showPasswordInput() {
-    var passwordInputSection = document.getElementById('FamilyFriends-password-input');
-    passwordInputSection.style.display = 'block';
-
-    var passwordInput = document.getElementById('password-input');
-    passwordInput.value = ''; // Clear the input field
-
-    var submitButton = document.getElementById('password-submit');
-    var incorrectPasswordMessage = document.getElementById('incorrect-password-message');
-
-    submitButton.onclick = function () {
-      checkPassword(passwordInput.value, incorrectPasswordMessage);
-    };
-
-    // Allow pressing Enter to submit the password
-    passwordInput.addEventListener("keyup", function(event) {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        submitButton.click();
-      } else {
-        incorrectPasswordMessage.style.display = 'none';
-      }
-    });
-  }
-
-  function checkPassword(enteredPassword, incorrectPasswordMessage) {
-    var correctPassword = "this-password-is-not-secure"; // Change to your actual password
-
-    if (enteredPassword === correctPassword) {
-      document.getElementById('FamilyFriends-description').style.display = 'block';
-      document.getElementById('FamilyFriends-games').style.display = 'block';
-      document.getElementById('FamilyFriends-password-input').style.display = 'none';
-      incorrectPasswordMessage.style.display = 'none';
-    } else {
-      incorrectPasswordMessage.style.display = 'block';
-    }
-  }
-
-  window.onresize = function () {
-    if (window.innerWidth < 768) {
-      document.querySelector('.menu-toggle').style.display = 'block';
-    } else {
-      document.querySelector('.menu-toggle').style.display = 'none';
-      document.querySelector('.sidebar').classList.remove('active');
-      document.querySelector('.menu-toggle').classList.remove('active');
-    }
-  };
-
-  window.onload = function () {
-    loadContent('Home');
-    if (window.innerWidth < 768) {
-      document.querySelector('.menu-toggle').classList.remove('active');
-      document.querySelector('.sidebar').classList.remove('active');
-    }
-  };
-</script>
-
+<script src="site.js"></script>
 </body>
-
 </html>
