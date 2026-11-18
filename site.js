@@ -3,6 +3,7 @@
   const pick = a => a[Math.floor(Math.random() * a.length)];
   const rand = (a, b) => a + Math.random() * (b - a);
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const touchDevice = matchMedia('(hover: none), (pointer: coarse)').matches;
 
   /* ---------- Background dots: they run away from the cursor, clicks make a burst ---------- */
   const sw = document.getElementById('swarm');
@@ -31,7 +32,8 @@
   addEventListener('pointermove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
   document.addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; });
   document.addEventListener('pointerdown', e => {
-    if (e.target.closest('a, button, canvas, dialog, .card')) return;
+    if (e.pointerType !== 'mouse' || touchDevice) return; // fireworks only with a mouse, never on phones/tablets
+    if (e.target.closest('a, button, canvas, dialog, .project')) return;
     burst(e.clientX, e.clientY);
   });
 
@@ -88,15 +90,9 @@
   /* ---------- Project pictures ---------- */
   const gallery = document.getElementById('gallery');
   const strip = document.getElementById('gallery-strip');
-  document.querySelectorAll('.card[data-shots]').forEach(card => {
+  document.querySelectorAll('.project[data-shots]').forEach(card => {
     const shots = card.dataset.shots.split(' ');
-    const hint = document.createElement('span');
-    hint.className = 'pics';
-    hint.textContent = shots.length > 1 ? `${shots.length} pictures →` : 'picture →';
-    const foot = document.createElement('div');
-    foot.className = 'card-foot';
-    foot.append(card.querySelector('.status, .card-link'), hint);
-    card.append(foot);
+    card.querySelector('.pics').textContent = shots.length > 1 ? `${shots.length} screenshots` : '1 screenshot';
     const open = () => {
       document.getElementById('gallery-title').textContent = card.dataset.title;
       strip.replaceChildren(...shots.map(src => Object.assign(document.createElement('img'), { src, alt: card.dataset.title + ' screenshot' })));
@@ -136,13 +132,13 @@
   const cardsEl = document.getElementById('projects');
   const dotsEl = document.createElement('div');
   dotsEl.className = 'swipe-dots';
-  const cardEls = [...cardsEl.querySelectorAll('.card')];
+  const cardEls = [...cardsEl.querySelectorAll('.project')];
   cardEls.forEach(() => dotsEl.append(document.createElement('span')));
   cardsEl.after(dotsEl);
   function markDot() {
     const box = cardsEl.getBoundingClientRect();
     let best = 0, bestDist = Infinity;
-    cardEls.forEach((c, k) => { const d = Math.abs(c.getBoundingClientRect().left - box.left - 16); if (d < bestDist) { bestDist = d; best = k; } });
+    cardEls.forEach((c, k) => { const d = Math.abs(c.getBoundingClientRect().left - box.left - 20); if (d < bestDist) { bestDist = d; best = k; } });
     [...dotsEl.children].forEach((d, k) => d.classList.toggle('on', k === best));
   }
   cardsEl.addEventListener('scroll', markDot, { passive: true });
@@ -171,6 +167,7 @@
   const $bal = document.getElementById('balance'), $last = document.getElementById('last'), $refill = document.getElementById('refill');
   let balance = 100, inPlay = 0;
   try { const v = parseFloat(localStorage.getItem('plinko-balance')); if (v >= 0) balance = v; } catch (e) {}
+  if (balance < BET) balance += 100; // broke last time? a fresh visit gives you another $100
   const money = v => '$' + (Math.round(v * 100) / 100).toLocaleString('en-US');
   function showBalance(dir) {
     $bal.textContent = money(balance);
@@ -202,7 +199,21 @@
     legs.push({ from: legs[legs.length - 1].to, to: { x: binX(bin), y: BIN_TOP + BALL_R + 10 }, dur: 300, hop: 14, bin });
     balls.push({ legs, leg: 0, t0: performance.now(), c: pick(COLORS), x: from.x, y: from.y, done: 0 });
   }
-  pc.addEventListener('pointerdown', dropBall);
+  pc.addEventListener('pointerdown', () => dropBall());
+
+  // Auto-play: keeps dropping balls by itself until you stop it or run out of money
+  const $auto = document.getElementById('auto');
+  let autoTimer = null;
+  function setAuto(on) {
+    clearInterval(autoTimer); autoTimer = null;
+    $auto.setAttribute('aria-pressed', on);
+    $auto.setAttribute('aria-label', on ? 'Stop auto-play' : 'Auto-play');
+    $auto.title = on ? 'Stop auto-play' : 'Auto-play';
+    if (!on) return;
+    const tick = () => { if (balance < BET) { setAuto(false); dropBall(); return; } dropBall(); };
+    tick(); autoTimer = setInterval(tick, 380);
+  }
+  $auto.addEventListener('click', () => setAuto(!autoTimer));
 
   function settle(ball, bin) {
     inPlay--;
@@ -217,7 +228,7 @@
     }
   }
 
-  function binColor(m) { return m >= 13 ? '#ff5d73' : m >= 3 ? '#ff8a3d' : m >= 1 ? '#ffd23f' : '#7cf29c'; }
+  function binColor(m) { return m >= 13 ? '#ffd23f' : m >= 3 ? '#e8c45a' : m >= 1 ? '#c9cfdc' : '#7d8597'; }
 
   function plinkoFrame(now) {
     p.clearRect(0, 0, PW, PH);
@@ -238,7 +249,7 @@
     }
     // pegs
     for (const q of pegs) {
-      p.fillStyle = q.flash > 0 ? '#ffd23f' : '#c8cfe0';
+      p.fillStyle = q.flash > 0 ? '#ffd23f' : '#9aa3b8';
       p.beginPath(); p.arc(q.x, q.y, PEG_R + q.flash * 3, 0, Math.PI * 2); p.fill();
       q.flash = Math.max(0, q.flash - .06);
     }

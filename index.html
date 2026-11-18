@@ -11,14 +11,20 @@
 </script>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Marcin Jedrych</title>
 <meta name="description" content="Side projects by Marcin Jedrych.">
 <meta property="og:title" content="Marcin Jedrych">
 <meta property="og:description" content="Side projects by Marcin Jedrych.">
 <meta property="og:url" content="https://www.marcinjedrych.be">
-<meta name="theme-color" content="#10131c">
-<link rel="icon" type="image/png" href="logo.png">
+<meta name="theme-color" content="#0f1219">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Marcin">
+<link rel="icon" type="image/png" href="img/icons/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -28,13 +34,14 @@
 
 <canvas id="swarm" aria-hidden="true"></canvas>
 
-<div class="layout">
-  <header class="intro">
-    <img class="me" src="img/me.jpg" alt="Marcin Jedrych" width="76" height="76">
-    <div class="intro-text">
-      <h1>Marcin Jedrych</h1>
-      <p class="sub fragile">Side projects</p>
-      <p class="about fragile">I work in data, and in my free time I build apps, games and whatever else I feel like.</p>
+<div class="page">
+  <header class="top">
+    <div class="who">
+      <img class="me" src="img/me.jpg" alt="Marcin Jedrych" width="56" height="56">
+      <div>
+        <h1>Marcin Jedrych</h1>
+        <p class="about fragile">Welcome to my personal projects page. Enjoy!</p>
+      </div>
     </div>
     <nav class="socials">
       <a href="https://be.linkedin.com/in/marcin-j%C4%99drych-290435165" target="_blank" rel="noopener">LinkedIn</a>
@@ -42,56 +49,61 @@
     </nav>
   </header>
 
-  <main class="cards" id="projects">
-    <article class="card" style="--accent:#ff8a3d" tabindex="0" data-title="Dishy" data-shots="img/shots/dishy-feature.jpg">
-      <div class="card-top">
-        <img src="img/dishy.png" alt="" width="48" height="48">
-        <h2>Dishy</h2>
-        <span class="tag">Android + iPhone</span>
-      </div>
-      <p class="fragile">Can't decide what to eat? Snap the menu, get a clean list of dishes, and let the wheel pick for you. Most scans run right on the phone, and AI only steps in when it has to.</p>
-      <p class="status">On its way to the Play Store</p>
-    </article>
+  <div class="main">
+    <section class="col-projects">
+      <h2 class="label">Side projects</h2>
+      <ul class="projects" id="projects">
+        <li class="project" tabindex="0" data-title="Dishy" data-shots="img/shots/dishy-feature.jpg">
+          <img class="icon" src="img/dishy.png" alt="" width="44" height="44">
+          <div class="body">
+            <h3>Dishy <span class="kind">Android + iPhone</span></h3>
+            <p class="fragile">Can't decide what to eat? Snap the menu, get a clean list of dishes, and let the wheel pick for you. Most scans run right on the phone, and AI only steps in when it has to.</p>
+          </div>
+          <div class="meta"><span class="status">On its way to the Play Store</span><span class="pics"></span></div>
+        </li>
+        <li class="project" tabindex="0" data-title="Tassn.be" data-shots="img/shots/tassn-modes.jpg img/shots/tassn-game.jpg">
+          <img class="icon" src="img/tassn.png" alt="" width="44" height="44">
+          <div class="body">
+            <h3>Tassn.be <span class="kind">Web game</span></h3>
+            <p class="fragile">A cup-toss drinking game for parties. It has accounts, friends, rooms, skins and challenges, and real players use it.</p>
+          </div>
+          <div class="meta"><a href="https://tassn.be" target="_blank" rel="noopener">tassn.be ↗</a><span class="pics"></span></div>
+        </li>
+        <li class="project" tabindex="0" data-title="Couch Mode" data-shots="img/shots/couch-tv.jpg img/shots/couch-pad.jpg img/shots/couch-remote-apps.jpg img/shots/couch-remote-pad.jpg">
+          <img class="icon" src="img/couch.png" alt="" width="44" height="44">
+          <div class="body">
+            <h3>Couch Mode <span class="kind">Home hack</span></h3>
+            <p class="fragile">Why buy a Chromecast? I turned an old laptop and a monitor into a smart TV. My phone is the remote, there's a TV-style home screen, and a Raspberry Pi in the middle runs it all.</p>
+          </div>
+          <div class="meta"><span class="status">Runs only in my living room</span><span class="pics"></span></div>
+        </li>
+        <li class="project" tabindex="0" data-title="Finance app" data-shots="img/shots/finance-overview.jpg?v=2 img/shots/finance-charts.jpg?v=2 img/shots/finance-wealth.jpg?v=2">
+          <img class="icon" src="img/finance.png" alt="" width="44" height="44">
+          <div class="body">
+            <h3>Finance app <span class="kind">Web app</span></h3>
+            <p class="fragile">It started as my own money tracker and grew into an app anyone can sign up for. It even logs Apple Pay payments straight from an iPhone Shortcut.</p>
+          </div>
+          <div class="meta"><a href="https://personal-helper-app.netlify.app" target="_blank" rel="noopener">Try it ↗</a><span class="pics"></span></div>
+        </li>
+      </ul>
+    </section>
 
-    <article class="card" style="--accent:#ffd23f" tabindex="0" data-title="Tassn.be" data-shots="img/shots/tassn-modes.jpg img/shots/tassn-game.jpg">
-      <div class="card-top">
-        <img src="img/tassn.png" alt="" width="48" height="48">
-        <h2>Tassn.be</h2>
-        <span class="tag">Web game</span>
+    <section class="col-plinko">
+      <h2 class="label">Plinko <span>$10 per ball</span></h2>
+      <div class="plinko" id="plinko-card">
+        <div class="plinko-head">
+          <span class="bal" id="balance">$100</span>
+          <span class="plinko-note" id="last">Click the board to drop a ball</span>
+          <button class="auto" id="auto" aria-label="Auto-play" aria-pressed="false" title="Auto-play">
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h3v11H4zM9 2.5h3v11H9z"/></svg>
+          </button>
+        </div>
+        <canvas id="plinko" width="600" height="560" aria-label="Plinko, click to drop a ball"></canvas>
+        <div class="plinko-foot"><button id="refill" hidden>Get $100 more</button></div>
       </div>
-      <p class="fragile">A cup-toss drinking game for parties. It has accounts, friends, rooms, skins and challenges, and real players use it.</p>
-      <a class="card-link" href="https://tassn.be" target="_blank" rel="noopener">Play at tassn.be ↗</a>
-    </article>
-
-    <article class="card" style="--accent:#5ad1ff" tabindex="0" data-title="Couch Mode" data-shots="img/shots/couch-tv.jpg img/shots/couch-pad.jpg img/shots/couch-remote-apps.jpg img/shots/couch-remote-pad.jpg">
-      <div class="card-top">
-        <img src="img/couch.png" alt="" width="48" height="48">
-        <h2>Couch Mode</h2>
-        <span class="tag">Home hack</span>
-      </div>
-      <p class="fragile">Why buy a Chromecast? I turned an old laptop and a monitor into a smart TV. My phone is the remote, there's a TV-style home screen, and a Raspberry Pi in the middle runs it all.</p>
-      <p class="status">Runs only in my living room</p>
-    </article>
-
-    <article class="card" style="--accent:#7cf29c" tabindex="0" data-title="Finance app" data-shots="img/shots/finance-overview.jpg img/shots/finance-charts.jpg img/shots/finance-wealth.jpg">
-      <div class="card-top">
-        <img src="img/finance.png" alt="" width="48" height="48">
-        <h2>Finance app</h2>
-        <span class="tag">Web app</span>
-      </div>
-      <p class="fragile">It started as my own money tracker and grew into an app anyone can sign up for. It even logs Apple Pay payments straight from an iPhone Shortcut.</p>
-      <a class="card-link" href="https://personal-helper-app.netlify.app" target="_blank" rel="noopener">Try it ↗</a>
-    </article>
-  </main>
-
-  <aside class="plinko" id="plinko-card">
-    <div class="plinko-head">
-      <div><span class="bal" id="balance">$100</span><small>balance</small></div>
-      <small>Plinko · $10 per ball</small>
-    </div>
-    <canvas id="plinko" width="600" height="560" aria-label="Plinko, click to drop a ball"></canvas>
-    <div class="plinko-foot"><span id="last">Click the board to drop a ball</span><button id="refill" hidden>Get $100 more</button></div>
-  </aside>
+    </section>
+  </div>
 </div>
 
 <dialog id="gallery">
